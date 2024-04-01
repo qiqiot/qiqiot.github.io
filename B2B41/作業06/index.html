@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>B2B41作業06</title>
+	<style>
+		h4{
+		color:#191970;
+		}
+
+		label{
+		color:#800000;
+		}
+
+		input{
+		color:green;
+		}
+
+		div{
+		color:#CD853F;
+		margin:5xp;
+		}
+		{}
+	</style>
+</head>
+
+<body>
+<form id="form01">
+	<label>姓名：</label>
+	<input type="text" name="name01" value="林鈺其"><br>
+	<label>收件住址：</label>
+	<input type="text" name="address01" value="台北市士林區劍潭路86號"><br>
+	<label>電話：</label>
+	<input type="tel" name="tel01" value="0903607485"><br>
+	<label>電子郵件：</label>
+	<input type="email" name="email01" value="qiqiot@gmail.com"><br>
+	<label>指定送貨日期：</label>
+	<input type="date" name="date01"><br>
+	<label>餅乾種類：(三選一)</label><br>
+	<input type="radio" name="fruit01" value="樂事洋芋片-經典原味(12入/箱)">樂事洋芋片-經典原味(12入/箱)546元<br>
+	<input type="radio" name="fruit02" value="奇多玉米棒-家常起司(12入/箱)">奇多玉米棒-家常起司(12入/箱)273元<br>
+	<input type="radio" name="fruit03" value="多力多滋玉米片-超濃起司(12入/箱)">多力多滋玉米片-超濃起司(12入/箱)507元<br>
+
+</form>
+<br>
+<button onclick ="shoppingInfo()"><h4>結帳</h4></button>
+<div id="demo"></div>
+<script>
+	function shoppingInfo() {
+		const x = document.getElementById("form01");
+		var item  = "";
+		var price = 0;
+		var text = "<h4>您的購物資訊如下:</h4>";
+		var i;
+		for(i=0; i<5; i++){
+			switch (i){
+				case 0:
+					item= "姓名：";
+					break;
+				case 1:
+					item= "收件住址：";
+					break;
+				case 2:
+					item= "電話：";
+					break;
+				case 3:
+					item= "電子郵件：";
+					break;
+				case 4:
+					item="指定送貨日期：";
+					break;
+			}
+			text += item + x.elements[i].value + "<br>";
+		}
+		for(i=5; i<=7; i++) {
+			if(x.elements[i].checked === true){
+				switch(i){
+					case 5:
+						price = 546;
+						break;
+					case 6:
+						price =273;
+						break;
+					case 7:
+						price = 507;
+						break;
+				}
+				text +="餅乾種類：" + x.elements[i].value + "<br>";
+				text +="價格合計：" + price + "元<br>";
+			}
+		}
+		document.getElementById("demo").innerHTML = text;
+	}
+
+</script>
+
+</body>
+
+</html>
