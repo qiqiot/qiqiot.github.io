@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>B2B41作業08</title>
+	<style>
+		h4{
+		color:#191970;
+		}
+
+		label{
+		color:#800000;
+		}
+
+		input{
+		color:green;
+		}
+
+		div{
+		color:#CD853F;
+		margin:5px;
+		}
+
+		table{
+			width:40%;
+			border-color:dodgerblue;
+			border-style:solid;
+			border-collapse:callapse;
+			}
+
+		tr{
+			text-align:left;
+			border-color:dodgerblue;
+			border-style:solid;
+			}
+
+		td{
+			vertical-align:middle;
+			border-color:dodgerblue;
+			border-style:solid;
+
+		td:nth-child(1){
+			color:brown;
+		}
+	</style>
+</head>
+
+<body>
+<form id="form01">
+	<label>姓名：</label>
+	<input type="text" name="name01" value="林鈺其"><br>
+	<label>收件住址：</label>
+	<input type="text" name="address01" value="台北市士林區劍潭路86號"><br>
+	<label>電話：</label>
+	<input type="tel" name="tel01" value="0903607485"><br>
+	<label>電子郵件：</label>
+	<input type="email" name="email01" value="qiqiot@gmail.com"><br>
+	<label>指定送貨日期：</label>
+	<input type="date" name="date01"><br>
+	<label>水果種類：(四選一)</label><br>
+	<input type="radio" name="fruit01" value="有機卡蜜拉網紋哈密瓜-特大果買1顆送1顆(共5台斤)">有機卡蜜拉網紋哈密瓜-特大果買1顆送1顆(共5台斤)867元<br>
+	<input type="radio" name="fruit01" value="卓蘭履歷黃金水蜜桃(8顆裝) ">卓蘭履歷黃金水蜜桃(8顆裝) 980元<br>
+	<input type="radio" name="fruit02" value="枋山董家愛文芒果(中果)(5台斤)">枋山董家愛文芒果(中果)(5台斤)505元<br>
+	<input type="radio" name="fruit03" value="無農藥殘留大樹玉荷包(3台斤/箱)">無農藥殘留大樹玉荷包(3台斤/箱)800元<br>
+
+</form>
+<br>
+<button onclick ="shoppingInfo()"><h4>結帳</h4></button>
+<div id="demo"></div>
+<script>
+	function shoppingInfo() {
+		const x = document.getElementById("form01");
+		var item  = "";
+		var price = 0;
+		var text = "<h4>您的購物資訊如下:</h4>";
+		text += "<table>";
+		var i;
+		for(i=0; i<5; i++){
+		text += "<tr>";
+			switch (i){
+				case 0:
+					item= "姓名：";
+					break;
+				case 1:
+					item= "收件住址：";
+					break;
+				case 2:
+					item= "電話：";
+					break;
+				case 3:
+					item= "電子郵件：";
+					break;
+				case 4:
+					item="指定送貨日期：";
+					break;
+			}
+			text += "<td>"+item+"</td>";
+			text += "<td>"+ x.elements[i].value + "</td>";
+			text += "</tr>";
+		}
+		for(i=5; i<=7; i++) {
+			if(x.elements[i].checked === true){
+				switch(i){
+					case 5:
+						price = 867;
+						break;
+					case 6:
+						price =980;
+						break;
+					case 7:
+						price = 505;
+						break;
+					case 8:
+						price = 800;
+						break;
+
+				}
+				text += "<tr>";
+				text += "<td>"+"水果種類：" + "</td>";
+				text += "<td>" + x.elements[i].value + "</td>";
+				text += "</tr>";
+				text += "<tr>";
+				text += "<td>"+"價格合計：" + "</td>";
+				text += "<td>" + price + "元</td>";
+				text += "</tr>";
+			}
+		}
+		text += "</table>";
+		document.getElementById("demo").innerHTML = text;
+	}
+
+</script>
+
+</body>
+
+</html>
