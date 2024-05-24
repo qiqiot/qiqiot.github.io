@@ -19,41 +19,42 @@
 		font-weight:bold;
 		font-size:x-large;
 		border-radius:50%;
-		backgroung-color:lightblue;
+		background-color:lightblue;
 		border:none;
 		text-align:center;
 		line-height:100px;
 		position:absolute;
-		animation:myanimation 4s ease-in-out alternate infinite
+		animation:myanimation 4s ease-in-out alternate infinite;
 		}
 	</style>
-	<script scr ="jquery-3.6.0.min.js"></script>
+	<script src ="jquery-3.6.0.min.js"></script>
 	<script>
-		$(document).ready(fuction(){
+		$(document).ready(function(){
 			$('#btn1').mouseover(function(){
 				$(".box").css("border-radius","0%");
-		})
+		});
 			$('#btn2').mouseover(function(){
 				$(".box").css("border-radius","50%");
-		})
+		});
 			$('#btn3').mouseover(function(){
 				$("#box01").html("B2B41");
-		})
+		});
 			$('#btn4').mouseover(function(){
 				$("#box01").html("林鈺其");
-		})
+		});
 	});
 	</script>
 
 </head>
 
 <body>
-		<div class="box" id="box01">BMD</div>
-		<input type="button" id="bnt1" value="方形"><br>
-		<input type="button" id="bnt2" value="圓形"><br>
-		<input type="button" id="bnt3" value="B2B41"><br>
-		<input type="button" id="bnt4" value="林鈺其"><br>
-
+	<div class="box" id="box01">BMD</div>
+	<div>
+		<input type="button" id="btn1" value="方形"><br>
+		<input type="button" id="btn2" value="圓形"><br>
+		<input type="button" id="btn3" value="B2B41"><br>
+		<input type="button" id="btn4" value="林鈺其"><br>
+	</div>
 </body>
 
 </html>
